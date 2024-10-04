@@ -3,25 +3,169 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	--background: #010101;
+	--foreground: #dfdfde;
+	--silver: rgb(155 155 155);
+	--border: rgb(23 23 23);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+	color: var(--foreground);
+	background: var(--background);
+}
+
+blockquote,
+dd,
+dl,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+pre {
+	margin: 0;
+}
+
+p {
+	line-height: 1.65;
+	margin: 0;
+	margin-bottom: 1.5rem;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+@layer components {
+	[cmdk-overlay] {
+		@apply bg-neutral-950/40;
+		@apply dark:bg-black/40;
+		@apply fixed left-0 top-0;
+		@apply h-full w-full;
+		@apply z-20;
+	}
+
+	[cmdk-dialog] {
+		@apply max-w-xl;
+		@apply w-full;
+		@apply fixed left-1/2 top-[15%];
+		@apply flex items-start justify-center;
+		@apply -translate-x-1/2;
+		@apply z-20;
+		@apply px-4;
+	}
+
+	[cmdk-root] {
+		@apply bg-white/90;
+		@apply dark:bg-neutral-800/95;
+		@apply relative;
+		@apply border-transparent;
+		@apply dark:border-neutral-800;
+		@apply border;
+		@apply rounded-xl;
+		@apply w-full;
+	}
+
+	[cmdk-input] {
+		@apply appearance-none;
+		@apply text-neutral-800 dark:text-silver;
+		@apply placeholder:text-neutral-900/40 dark:placeholder:text-white/40;
+		@apply bg-transparent;
+		@apply w-full;
+		@apply px-5 pt-5 pb-1;
+		/* @apply border-b dark:border-neutral-800; */
+		@apply outline-none;
+		@apply text-lg;
+	}
+
+	[cmdk-list] {
+		@apply px-2 py-0;
+		@apply transition-all;
+		height: calc(var(--cmdk-list-height) + 8px);
+	}
+
+	[cmdk-item] {
+		@apply px-3;
+		@apply flex items-center justify-between;
+		@apply px-3 py-2;
+		@apply rounded-md;
+		@apply cursor-pointer;
+		@apply text-neutral-600 dark:text-silver-dark;
+		@apply transition-colors;
+		@apply [font-variation-settings:'wght'_420];
+	}
+
+	[cmdk-item] > div {
+		@apply flex items-center gap-2;
+	}
+
+	[cmdk-item][aria-selected] {
+		@apply bg-neutral-700/10 dark:bg-white/10;
+		@apply text-neutral-800 dark:text-silver;
+	}
+
+	[cmdk-item]:active {
+		@apply bg-neutral-200/[.9] dark:bg-neutral-700;
+		@apply text-neutral-800 dark:text-silver;
+	}
+
+	[cmdk-empty] {
+		@apply px-3 py-3;
+		@apply text-sm font-medium text-neutral-600 [font-variation-settings:'opsz'_12] dark:text-silver-dark;
+	}
+
+	[cmdk-separator] {
+		@apply border-b dark:border-neutral-800;
+		@apply my-2;
+	}
+
+	[cmdk-group-heading] {
+		@apply px-3 pb-2 pt-4;
+		@apply text-xs font-medium text-neutral-600 [font-variation-settings:'opsz'_12] dark:text-silver-dark;
+	}
+
+	[cmdk-loading] {
+		@apply absolute;
+		@apply top-3;
+		@apply right-3;
+		@apply text-neutral-400 dark:text-neutral-600;
+	}
+
+	[cmdk-loading] div {
+		@apply flex;
+	}
+
+	.link {
+		@apply !underline;
+		@apply !decoration-1.5;
+		@apply !underline-offset-2.5;
+		@apply !decoration-neutral-700;
+		@apply hover:!decoration-neutral-600;
+		@apply motion-safe:transition;
+		@apply duration-150;
+		@apply ease-out-expo;
+		text-decoration-skip-ink: all;
+	}
+
+	.link-sm {
+		@apply text-xs;
+		@apply decoration-1.5;
+		@apply underline-offset-1.5;
+		@apply text-silver;
+		@apply decoration-neutral-700;
+		@apply hover:decoration-neutral-600;
+	}
+
+	.link-fade {
+		@apply text-sm;
+		@apply text-silver-dark;
+		@apply hover:text-silver;
+		@apply transition-colors;
+	}
 }
