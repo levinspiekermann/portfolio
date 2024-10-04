@@ -1,5 +1,5 @@
 import { Providers } from '@/components/providers'
-import { Analytics } from '@vercel/analytics/next'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import CommandMenu from '../components/command-menu'
