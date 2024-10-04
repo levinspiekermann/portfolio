@@ -20,6 +20,23 @@ export const metadata: Metadata = {
 	title: 'Levin Spiekermann',
 	description:
 		'I’m Levin, a full-stack developer from Germany with expertise in building dynamic web applications and seamless user experiences. Explore my portfolio for more information.',
+	openGraph: {
+		type: 'website',
+		locale: 'en_US',
+		url: 'https://levinspiekermann.com',
+		siteName: 'Levin Spiekermann',
+		title: 'Levin Spiekermann',
+		description:
+			'I’m Levin, a full-stack developer from Germany with expertise in building dynamic web applications and seamless user experiences. Explore my portfolio for more information.',
+		images: [
+			{
+				url: 'https://levinspiekermann.com/og-image.jpeg',
+				width: 1200,
+				height: 630,
+				alt: 'Levin Spiekermann',
+			},
+		],
+	},
 }
 
 export default function RootLayout({
