@@ -38,6 +38,9 @@ export const metadata: Metadata = {
 			},
 		],
 	},
+	other: {
+		'theme-color': '#FBFAF4',
+	},
 }
 
 export default function RootLayout({
