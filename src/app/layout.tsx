@@ -1,4 +1,5 @@
 import { Providers } from '@/components/providers'
+import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import CommandMenu from '../components/command-menu'
@@ -63,6 +64,7 @@ export default function RootLayout({
 						<Footer />
 					</Providers>
 				</main> */}
+				<Analytics />
 			</body>
 		</html>
 	)
